@@ -1820,6 +1820,7 @@ sub filtered_list {
     %res = ( %forward_params, %res );
     $MT::DebugMode && $debug->{section}->('finalize');
     MT->run_callbacks( 'cms_filtered_list_param.' . $ds, $app, \%res, $objs );
+    MT->run_callbacks( 'cms_filtered_list_param.' . $callback_ds, $app, \%res, $objs );
 
     if ($MT::DebugMode) {
         my $total = Time::HiRes::tv_interval( $debug->{total} );
