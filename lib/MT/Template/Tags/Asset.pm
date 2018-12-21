@@ -202,7 +202,7 @@ sub _hdlr_assets {
                     join => MT::ObjectTag->join_on(
                         'tag_id',
                         {   object_datasource => MT::Asset->datasource,
-                            %blog_terms,
+                            blog_id => $blog_terms{blog_id},
                         },
                         { %blog_args, unique => 1 }
                     ),
@@ -218,7 +218,7 @@ sub _hdlr_assets {
                     join => MT::ObjectTag->join_on(
                         'tag_id',
                         {   object_datasource => MT::Asset->datasource,
-                            %blog_terms,
+                            blog_id           => $blog_terms{blog_id},
                         },
                         { %blog_args, unique => 1 }
                     ),
@@ -235,7 +235,7 @@ sub _hdlr_assets {
                     tag_id            => \@tag_ids,
                     object_id         => $entry_id,
                     object_datasource => $class->datasource,
-                    %blog_terms,
+                    blog_id           => $blog_terms{blog_id},
                 };
                 my $args = {
                     %blog_args,
